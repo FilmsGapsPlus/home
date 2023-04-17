@@ -6,6 +6,10 @@
   <meta charset="UTF-8">
   <title>FilmsGapsPlus</title>
   <link rel="icon" href="https://ia601603.us.archive.org/31/items/img-20230310-102109-729/IMG_20230310_102109_729.jpg">
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/recyclerviewlib/dist/recyclerviewlib.min.js"></script>
    <style>
 		
 		body {
@@ -16,6 +20,42 @@
 			color: #fff;
 			padding: 21px 16px;
 			text-align: center;
+		}
+		
+		#recyclerview {
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			scroll-snap-type: x proximity;
+			scroll-padding: 10px;
+		}
+
+		.item {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 10px;
+			scroll-snap-align: start;
+		}
+
+		.item img {
+			width: 75px;
+			height: 100px;
+			object-fit: cover;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+
+		.item p {
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			max-width: 115px;
 		}
 		
 		.toolbar {
@@ -145,8 +185,6 @@ video {
 </head>
 <body>
 	<div class="toolbar">
-		<img src="https://ia802603.us.archive.org/24/items/697bdcb-5b-5f-00017bdf-2c-12375ded-111/s15.png"
-    scaleType="centerCrop" layout_width="30" height="50" alt="Films Gaps Plus">
 		<h1>FilmsGapsPlus</h1>
           <div class="button-container">
 			<button onclick="window.location.href = 'https://slpa1se15.github.io/Films-Gaps-Plus/download';">Descarga ¡Ya!</button>
@@ -155,25 +193,81 @@ video {
 	
 	    <!-- ↓↓  Relleno ↓↓ -->
           
-            <p class="font-small2"><br>
-        	<p class="font-small2"><br>
-        	<p class="font-small2"><br>
+            <br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
         
         <!-- ↑↑ Relleno ↑↑ -->
         
-        <img src="https://ia601608.us.archive.org/30/items/20230404041228665-z/20230404041228665Z.png"
-        scaleType="centerCrop" layout_width="30" height="500" alt="Films Gaps Plus">
+        <img src="https://archive.org/download/4818377/4818377.png"
+        scaleType="centerCrop" layout_width="30" height="300" alt="Films Gaps Plus">
     
     <p class="font-small2"><br>
     
-      <h1 style="margin-top: 10px;">Films Gaps Plus es una aplicacion movil que ofrece una amplia seleccion de peliculas y series, una interfaz intuitiva y la posibilidad de ganar monedas para comprar contenido adicional.</h1>
+           <p class="font-small2">Films Gaps Plus es una aplicacion movil que ofrece una amplia seleccion de peliculas y series, una interfaz intuitiva y la posibilidad de ganar monedas para comprar contenido adicional<br>
       
-     <p class="font-small2"><br>
-
+     <br>
 
   <a href="#" class="boton" onclick="window.location.href = 'https://slpa1se15.github.io/Films-Gaps-Plus/information';">Mas información</a>
   
-  <p class="font-small2"><br>
+         <br>
+         <br>
+  
+  <p class="font-small2">Tops series y películas de Films Gaps Plus<br>
+  	
+       <br>
+  	
+  <div id="recyclerview"></div>
+  
+  <!--- Firebase --->
+
+	<script>
+		// Configurar Firebase
+var firebaseConfig = {
+	apiKey: "TU_API_KEY",
+	authDomain: "TU_AUTH_DOMAIN",
+	databaseURL: "https://filmsgapspluschat-default-rtdb.firebaseio.com/",
+	projectId: "TU_PROJECT_ID",
+	storageBucket: "TU_STORAGE_BUCKET",
+	messagingSenderId: "TU_MESSAGING_SENDER_ID",
+	appId: "TU_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Obtener referencia a la base de datos de Firebase
+var database = firebase.database();
+
+// Obtener los datos de Firebase y mostrarlos en el RecyclerView
+var ref = database.ref("FilmsGapsPlusApiSDK/idApi");
+ref.limitToFirst(50).on("value", function(snapshot) {
+	var data = snapshot.val();
+	var items = "";
+	for (var key in data) {
+		if (data.hasOwnProperty(key) && data[key].hasOwnProperty("F") && data[key].hasOwnProperty("N")) {
+			var nz = data[key]["F"];
+			var xz = data[key]["N"];
+			var image = data[key]["F"];
+			var item = '<div class="item"><img src="' + image + '" alt="Films Gaps Plus"><p>' + xz + '</p></div>';
+			items += item;
+		}
+	}
+	$("#recyclerview").html(items);
+	RecyclerViewLib.createRecyclerView("#recyclerview", {
+		horizontal: true,
+		itemWidth: 135,
+		itemHeight: 300,
+		itemCount: 20
+	});
+});
+
+	</script>
+	
+	<!-- Firebase -->
+		
+		  <br>
+		  <br>
   
   <a href= "#" class="boton2" onclick="window.location.href = 'https://slpa1se15.github.io/Films-Gaps-Plus/Seguridad';">Términos de Seguridad y Privacidad</a>
 	
