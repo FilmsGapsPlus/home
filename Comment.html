@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FilmsGapsPlus - Comentarios</title>
+	<link rel="icon" href="https://ia801609.us.archive.org/13/items/films-gaps-plus_202304/FilmsGapsPlus%20%281%29.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+	    
+	    body {
+			background-image: url("https://ia802607.us.archive.org/6/items/img-20230416-215340-1/__ia_thumb.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			color: #fff;
+			padding: 21px 16px;
+			text-align: center;
+		}
+		
+		.toolbar {
+			background-color: rgba(0, 0, 0, 0.2);
+			color: #fff;
+			padding: 21px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			opacity: 1;
+			transition: opacity 0.5s;
+		}
+
+		.toolbar.hide {
+			opacity: 0;
+		}
+
+		.toolbar h1 {
+			font-size: 2em;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2em;
+			margin-top: 16px;
+		}
+		
+h2 {
+			font-size: 1.5em;
+			color: #BDBDBD;
+		}
+		
+h3 {
+			font-size: 2em;
+		}
+		
+h4 {
+			font-size: 1,2em;
+		}
+
+h5 {
+  font-size: 1.2em;
+  color: #BDBDBD;
+}
+
+		
+		p {
+			font-size: 1em;
+			margin-bottom: 0px;
+		}
+		
+		button {
+			background-image: linear-gradient(to right, #F78181, #FA5858);
+			color: #F8F8F8;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+			cursor: pointer;
+			margin-bottom: 21px;
+		}
+		
+		  .boton {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #F78181, #FA5858);
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+    .boton2 {
+    display: inline-block;
+    padding: 0px 0px;
+    background: linear-gradient(to right, #00000000, #00000000);
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+		.button-container {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+		}
+
+		.button-container button {
+			margin-right: 0;
+		}
+
+		.font-small {
+			font-family: 'Netflix Sans', sans-serif;
+			font-size: 23px;
+			font-weight: normal;
+		}
+
+	.font-small2 {
+			font-family: 'Netflix Sans', sans-serif;
+			font-size: 16px;
+			font-weight: normal;
+		}
+
+.btn-info {
+  font-size: 21px;
+  font-family: 'Netflix Sans', sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		li {
+			padding: 10px;
+			border-bottom: 2px solid #ccc;
+		}
+		
+
+		li:last-child {
+			border-bottom: none;
+		}
+
+		li strong {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 5px;
+		}
+		
+		button {
+			background-image: linear-gradient(to right, #F78181, #FA5858);
+			color: #F8F8F8;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+			cursor: pointer;
+			margin-bottom: 21px;
+		}
+
+input[name="edad"] {
+			background-image: linear-gradient(to right, #FFFFFF, #D8D8D8);
+			color: #212121;
+			padding: 5px 5px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.1em;
+			cursor: pointer;
+			margin-bottom: 12px;
+}
+
+input[name="nombre"] {
+			background-image: linear-gradient(to right, #D8D8D8, #FFFFFF);
+			color: #212121;
+			padding: 5px 5px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.1em;
+			cursor: pointer;
+			margin-bottom: 21px;
+}
+
+  <!---Toobar--->
+  
+
+		li span {
+			color: #777;
+			font-size: 12px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="toolbar">
+		<h1>FilmsGapsPlus</h1>
+          <div class="button-container">
+			<button onclick="window.location.href = 'https://slpa1se15.github.io/Films-Gaps-Plus/';">Volver ¡Atrás!</button>
+		</div>
+	</div>
+	    
+	<br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <img src="https://archive.org/download/4818377/4818377.png"
+    scaleType="centerCrop" layout_width="30" height="250" alt="Films Gaps Plus">
+    <br>
+	<h1>Comentarios</h1>
+	<form>
+		<label>
+		 <br>
+			<h2>Nombre</h2>
+			<input type="text" name="edad" required>
+		</label>
+		<lab>
+		    <br>
+		    <br>
+		    <h2>Comentario</h2>
+			<input type="text" name="nombre" required>
+		</label>
+		<br>
+		<br>
+		<button type="submit">Comentar</button>
+	</form>
+	
+	<ul id="lista"></ul>
+
+	<script>
+		// Configurar Firebase
+		var firebaseConfig = {
+			apiKey: "API_KEY",
+			authDomain: "AUTH_DOMAIN",
+			databaseURL: "https://filmsgapspluschat-default-rtdb.firebaseio.com/",
+			projectId: "PROJECT_ID",
+			storageBucket: "STORAGE_BUCKET",
+			messagingSenderId: "MESSAGING_SENDER_ID",
+			appId: "APP_ID"
+		};
+		firebase.initializeApp(firebaseConfig);
+
+		// Obtener referencia a la base de datos de Firebase
+		var database = firebase.database();
+		var ref = database.ref("FilmsGapsPlusApiSDK/idComent");
+
+		// Mostrar los datos de Firebase en la lista HTML
+		ref.on("value", function(snapshot) {
+			var lista = "";
+			snapshot.forEach(function(childSnapshot) {
+				var nombre = childSnapshot.val().nombre;
+				var edad = childSnapshot.val().edad;
+				var fecha = new Date(childSnapshot.val().timestamp);
+				var fechaFormato = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+				var horaFormato = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+				lista += "<li><strong>" + nombre + "</strong><span>" + edad + "  - " + fechaFormato + " " + horaFormato + "</span></li>";
+			});
+			$("#lista").html(lista);
+		});
+
+		// Agregar un nuevo dato a Firebase al enviar el formulario
+		$("form").submit(function(event) {
+			event.preventDefault();
+			var nombre = $("input[name='nombre']").val();
+			var edad = $("input[name='edad']").val();
+			var timestamp = new Date().getTime();
+			ref.push({
+				nombre: nombre,
+				edad: edad,
+				timestamp: timestamp
+			});
+			$("form")[0].reset();
+		});
+	
+	</script>
+	
+	<a href= "#" class="boton2" onclick="window.location.href = '';">No compartas información personal, El nombre ¡Films Gaps Plus! puede usarlo otra persona en los comentarios</a>
+	<br>
+	<br>
+	<a href= "#" class="boton2" onclick="window.location.href = 'https://slpa1se15.github.io/Films-Gaps-Plus/Seguridad';">Términos de Seguridad y Privacidad</a>
+	
+</body>
+</html>
