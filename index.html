@@ -40,7 +40,287 @@
 			scroll-snap-align: start;
 		}
 
+		.item img {<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>FilmsGapsPlus</title>
+  <link rel="icon" href="https://ia801609.us.archive.org/13/items/films-gaps-plus_202304/FilmsGapsPlus%20%281%29.png">
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/recyclerviewlib/dist/recyclerviewlib.min.js"></script>
+   <style>
+		
+		body {
+			background-image: url("https://ia902703.us.archive.org/18/items/img-20230606-174009/IMG_20230606_174009.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			color: #fff;
+			padding: 21px 16px;
+			text-align: center;
+		}
+		
+		#recyclerview {
+			display: flex;
+			flex-wrap: nowrap;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			scroll-snap-type: x proximity;
+			scroll-padding: 10px;
+		}
+
+		.item {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			padding: 10px;
+			scroll-snap-align: start;
+		}
+
 		.item img {
+			width: 75px;
+			height: 100px;
+			object-fit: cover;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+
+		.item p {
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			max-width: 115px;
+		}
+		
+		.toolbar {
+			background-color: rgba(0, 0, 0, 0.2);
+			color: #fff;
+			padding: 21px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			opacity: 1;
+			transition: opacity 0.5s;
+		}
+
+		.toolbar.hide {
+			opacity: 0;
+		}
+
+		.toolbar h1 {
+			font-size: 2em;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 1em;
+			margin-top: 16px;
+		}
+		
+h2 {
+			font-size: 1,7em;
+		}
+		
+h3 {
+			font-size: 2em;
+		}
+		
+h4 {
+			font-size: 1,2em;
+		}
+
+h5 {
+  font-size: 1.2em;
+  color: #BDBDBD;
+}
+
+		
+		p {
+			font-size: 1em;
+			margin-bottom: 0px;
+		}
+		
+		button {
+			background-image: linear-gradient(to right, #2E3136, #2E3136);
+			color: #F8F8F8;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1em;
+			cursor: pointer;
+			margin-bottom: 21px;
+		}
+		
+		  .boton {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #2E3136, #2E3136);
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+    .boton2 {
+    display: inline-block;
+    padding: 0px 0px;
+    background: linear-gradient(to right, #00000000, #00000000);
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+		.button-container {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+		}
+
+		.button-container button {
+			margin-right: 0;
+		}
+
+		.font-small {
+			font-family: 'Netflix Sans', sans-serif;
+			font-size: 23px;
+			font-weight: normal;
+		}
+
+	.font-small2 {
+			font-family: 'Netflix Sans', sans-serif;
+			font-size: 16px;
+			font-weight: normal;
+		}
+
+.btn-info {
+  font-size: 21px;
+  font-family: 'Netflix Sans', sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+	</style>
+</head>
+<body>
+	<div class="toolbar">
+		<h1>FilmsGapsPlus</h1>
+          <div class="button-container">
+			<button onclick="window.location.href = 'https://filmsgapsplus.github.io/home/download';">Descarga ¡Ya!</button>
+		</div>
+	</div>
+	
+	    <!-- ↓↓  Relleno ↓↓ -->
+          
+            <br>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+
+        
+        <!-- ↑↑ Relleno ↑↑ -->
+        
+        <img src="https://archive.org/download/4818337x/4818337x.png"
+        scaleType="centerCrop" layout_width="30" height="250" alt="Films Gaps Plus">
+    
+        	<br>
+        	<br>
+
+    
+           <p class="font-small2">Films Gaps Plus es una aplicacion movil que ofrece una amplia seleccion de peliculas y series, una interfaz intuitiva y la posibilidad de ganar monedas para comprar contenido adicional<br>
+      
+     <br>
+
+  <a href="#" class="boton" onclick="window.location.href = 'https://filmsgapsplus.github.io/home/information';">Mas información</a>
+  
+         <br>
+         <br>
+         	<a href= "#" class="boton2" onclick="window.location.href = 'https://filmsgapsplus.github.io/home/Comment';">Ver Comentarios</a>
+         <br>
+         <br>
+  
+  <p class="font-small2">Tops series y películas de Films Gaps Plus<br>
+  	
+       <br>
+  	
+  <div id="recyclerview"></div>
+  
+  <!--- Firebase --->
+
+	<script>
+		// Configurar Firebase
+var firebaseConfig = {
+	apiKey: "TU_API_KEY",
+	authDomain: "TU_AUTH_DOMAIN",
+	databaseURL: "https://filmsgapspluschat-default-rtdb.firebaseio.com/",
+	projectId: "TU_PROJECT_ID",
+	storageBucket: "TU_STORAGE_BUCKET",
+	messagingSenderId: "TU_MESSAGING_SENDER_ID",
+	appId: "TU_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Obtener referencia a la base de datos de Firebase
+var database = firebase.database();
+
+// Obtener los datos de Firebase y mostrarlos en el RecyclerView
+var ref = database.ref("FilmsGapsPlusApiSDK/idApi");
+ref.limitToFirst(50).on("value", function(snapshot) {
+	var data = snapshot.val();
+	var items = "";
+	for (var key in data) {
+		if (data.hasOwnProperty(key) && data[key].hasOwnProperty("F") && data[key].hasOwnProperty("N")) {
+			var nz = data[key]["F"];
+			var xz = data[key]["N"];
+			var image = data[key]["F"];
+			var item = '<div class="item"><img src="' + image + '" alt="Films Gaps Plus"><p>' + xz + '</p></div>';
+			items += item;
+		}
+	}
+	$("#recyclerview").html(items);
+	RecyclerViewLib.createRecyclerView("#recyclerview", {
+		horizontal: true,
+		itemWidth: 135,
+		itemHeight: 300,
+		itemCount: 20
+	});
+});
+
+	</script>
+	
+	<!-- Firebase -->
+		
+		  <br>
+		  <br>
+  
+  <a href= "#" class="boton2" onclick="window.location.href = 'https://filmsgapsplus.github.io/home/Seguridad';">Términos de Seguridad y Privacidad</a>
+	
+	</body>
+</html>
 			width: 75px;
 			height: 100px;
 			object-fit: cover;
