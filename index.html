@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FilmsGapsPlus</title>
-    <link rel="icon" href="https://i.ibb.co/xHRbksw/Films-Gaps-Plus-App-Logo.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata">
+  <link rel="icon" href="https://i.ibb.co/xHRbksw/Films-Gaps-Plus-App-Logo.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata">
   <style>
     /* Estilos generales */
-body {
+    body {
       font-family: 'Crimson Pro', serif;
       font-family: 'Literata', serif;
       margin: 0;
@@ -30,22 +30,29 @@ body {
       height: auto;
       display: block;
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
-    
-     .app-logo2 {
+
+    .app-logo.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .app-logo2 {
       width: 225px;
       height: 225px;
       display: block;
       margin: 0 auto;
     }
-    
-     .app-logo3 {
+
+    .app-logo3 {
       width: 220px;
       height: 35px;
       display: block;
       margin: 0 auto;
     }
-    
 
     .main-text {
       text-align: center;
@@ -54,7 +61,6 @@ body {
 
     .sub-text {
       text-align: center;
-      font-size: px;
       color: #616161;
     }
 
@@ -72,6 +78,7 @@ body {
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      animation: parpadeo 4s ease-in-out infinite;
     }
 
     .image-container {
@@ -100,93 +107,121 @@ body {
       font-size: 14px;
       color: #757575;
     }
+
     @keyframes parpadeo {
-  25% { opacity: 1.0; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1.0; }
+      25% { opacity: 1.0; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1.0; }
     }
 
-    .download-button {
-  animation: parpadeo 4s ease-in-out infinite;
-    }
-    
     .toolbar img {
-  animation: parpadeo 10s ease-in-out infinite;
+      animation: parpadeo 10s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .toolbar {
+      display: flex;
+      background-color: #00000000;
+      padding: 8px;
+      align-items: center;
     }
     
-    /* Estilos del toolbar */
-            .toolbar {
-            display: flex;
-            background-color: #00000000;
-            padding: 8px;
-            align-items: center;
-        }
-        .toolbar a {
-            color: white;
-            padding: 14px 8px;
-            text-decoration: none;
-            text-align: center;
-        }
-        .toolbar a:hover {
-            background-color: #00000000;
-        }
-        .toolbar .logo {
-            flex-grow: 1;
-        }
-        .toolbar .logo img {
-            height: 40px;
-        }
-       </style>
+    .toolbar a {
+      color: white;
+      padding: 14px 8px;
+      text-decoration: none;
+      text-align: center;
+    }
+    
+    .toolbar a:hover {
+      background-color: #00000000;
+    }
+    
+    .toolbar .logo {
+      flex-grow: 1;
+    }
+    
+    .toolbar .logo img {
+      height: 40px;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="toolbar">
-        <div class="logo">
-            <img src="https://avatars.githubusercontent.com/u/110709834?s=96&v=4" alt="FilmsGapsPlus">
-        </div>
-        <a href="https://tiktok.com/@filmsgapsplus" target="_blank">Tik Tok</a>
-        <a> | </a>
-        <a href="https://t.me/FilmsGapsPlusSoporte" target="_blank">Soporte</a>
-
+  <div class="toolbar fade-in">
+    <div class="logo">
+      <img src="https://avatars.githubusercontent.com/u/110709834?s=96&v=4" alt="FilmsGapsPlus">
     </div>
+    <a href="https://tiktok.com/@filmsgapsplus" target="_blank">Tik Tok</a>
+    <a> | </a>
+    <a href="https://t.me/FilmsGapsPlusSoporte" target="_blank">Soporte</a>
+  </div>
 
-</body>
-  <div id="linear1">
+  <div id="linear1" class="fade-in">
     <div class="scroll-view">
-    	
-      <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(7.1).png" alt="FilmsGapsPlus" class="app-logo">
-      <br></br>
-      <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(3).png" alt="FilmsGapsPlus" class="app-logo3">
-      <p class="user-text"><strong>Nuestra aplicación se adapta automáticamente a tu dispositivo ya sea en tu teléfono o en tu televisor android</strong></p>
-      <a href="https://filmsgapsplus.github.io/home/FilmsGapsPlus_v2.3.apk" class="download-button"><strong>Descargar ¡Ahora!</strong></a>
-      <div class="image-container">
-       <p class="user-count"><strong>Android Tv</strong></p>
-       <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(9).png" alt="FilmsGapsPlus" class="app-logo">
-      <p class="user-text">FilmsGapsPlus Tv ya está disponible para Android TV</p>
-      <div class="image-container">
-     </div>
-      <p class="user-count"><strong>Movies</strong></p>
-         <div class="image-container">
+      <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(7.1).png" alt="FilmsGapsPlus" class="app-logo fade-in">
+      <br>
+      <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(3).png" alt="FilmsGapsPlus" class="app-logo3 fade-in">
+      <p class="user-text fade-in"><strong>Nuestra aplicación se adapta automáticamente a tu dispositivo ya sea en tu teléfono o en tu televisor android</strong></p>
+      <a href="https://filmsgapsplus.github.io/home/FilmsGapsPlus_v2.3.apk" class="download-button fade-in"><strong>Descargar ¡Ahora!</strong></a>
+      <div class="image-container fade-in">
+        <p class="user-count fade-in"><strong>Android Tv</strong></p>
+        <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(9).png" alt="FilmsGapsPlus" class="app-logo">
+        <p class="user-text">FilmsGapsPlus Tv ya está disponible para Android TV</p>
+      </div>
+      <div class="image-container fade-in">
+        <p class="user-count"><strong>Movies</strong></p>
         <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(5).png" alt="FilmsGapsPlus" class="app-logo">
-      <p class="user-text">Descubre miles de películas y series de calidad resubido de páginas webs</p>
+        <p class="user-text">Descubre miles de películas y series de calidad resubido de páginas webs</p>
       </div>
-      <p class="user-count"><strong>Comentarios</strong></p>
-       <div class="image-container">
-       <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(2).png" alt="FilmsGapsPlus" class="app-logo">
-      <p class="user-text">Tener una buena comunicación con la comunidad a través de comentarios</p>
+      <div class="image-container fade-in">
+        <p class="user-count"><strong>Comentarios</strong></p>
+        <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(2).png" alt="FilmsGapsPlus" class="app-logo">
+        <p class="user-text">Tener una buena comunicación con la comunidad a través de comentarios</p>
       </div>
-      <p class="user-count"><strong>Premium</strong></p>
-      <div class="image-container">
+      <div class="image-container fade-in">
+        <p class="user-count"><strong>Premium</strong></p>
         <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(6).png" alt="FilmsGapsPlus" class="app-logo">
         <p class="user-count"><strong>🏳️‍🌈 = 💩</strong></p>
         <p class="user-text">Solo existen 3 géneros, 1. Masculino, 2. Femenino, 3. Trasformers 🗿</p>
       </div>
-      <div id="linear3">
-      	<br></br>
+      <div id="linear3" class="fade-in">
+        <br>
         <p class="copyright">© ZendTay Studio</p>
         <p class="copyright">2020 | 2024</p>
       </div>
     </div>
   </div>
+
+  <script>
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    function handleScroll() {
+      const images = document.querySelectorAll('.app-logo');
+      images.forEach(image => {
+        if (isInViewport(image)) {
+          image.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('DOMContentLoaded', handleScroll);
+  </script>
 </body>
-        </html>
+</html>
