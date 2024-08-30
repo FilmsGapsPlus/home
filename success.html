@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #212121;
+            --secondary-bg: #191919;
+            --text-color: #ffffff;
+            --accent-color: #4CAF50;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .confirmation-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: var(--secondary-bg);
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            animation: fillProgress 1.5s ease-out;
+        }
+        @keyframes fillProgress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .details {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">MiEmpresa</div>
+        </header>
+
+        <main>
+            <h1>¡Compra Exitosa!</h1>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+
+            <div class="confirmation-box">
+                <div class="emoji">📦</div>
+                <p>Has adquirido el paquete Premium por 1 mes.</p>
+            </div>
+
+            <div class="details">
+                <div class="detail-item">
+                    <span>Paquete:</span>
+                    <strong>Premium</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Duración:</span>
+                    <strong>1 mes</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Fecha de activación:</span>
+                    <strong id="activation-date"></strong>
+                </div>
+            </div>
+
+            <p>Gracias por confiar en nosotros. Disfruta de todos los beneficios exclusivos de tu nuevo paquete Premium.</p>
+
+            
+        </main>
+    </div>
+
+    
+
+    <script>
+        document.getElementById('activation-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
