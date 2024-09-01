@@ -315,42 +315,29 @@
          font-weight: 700;
          }
 .feedback-input {
-  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  background-color: rgba(51, 51, 51, 0.85); /* Fondo con menos opacidad */
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+  border: none;
   padding: 15px;
-  width: 100%; /* Ajusta al ancho del contenedor */
-  max-width: 275px; /* Mantiene el ancho máximo */
+  width: 100%; /* Ajuste automático al contenedor padre */
+  max-width: 500px; /* Ancho máximo */
   border-radius: 10px;
   font-size: 16px;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.feedback-input::placeholder {
-  color: rgba(255, 255, 255, 0.5); /* Placeholder más visible */
-}
-
-.feedback-input:focus {
-  background-color: rgba(255, 255, 255, 0.2); /* Más claro al enfocar */
-  border-color: rgba(255, 255, 255, 0.5);
-  outline: none;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+  margin-bottom: 20px; /* Espacio entre textarea y botón */
 }
 
 .send-button {
-  background-color: #ff4b4b;
+  background-color: #ff4b4b; /* Mantenemos el color original del botón */
   color: white;
   border: none;
-  padding: 12px 15px;
-  width: 100%;
-  max-width: 275px;
-  border-radius: 10px; /* Consistente con el textarea */
+  padding: 10px;
+  width: 100%; /* Ajuste automático al contenedor padre */
+  max-width: 500px; /* Ancho máximo */
+  border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.send-button:hover {
-  background-color: #ff6b6b; /* Efecto hover */
 }
       </style>
    </head>
@@ -428,16 +415,14 @@
                <a href="https://t.me/FilmsGapsPlusSoporte" class="telegram-button"><strong>Telegram</strong></a>
                <a href="mailto:filmsgapsplusdevelopers@gmail.com?subject=Soporte%20FilmsGapsPlus&body=Hola,%20necesito%20ayuda%20con" class="e-mail-button"><strong>Correo electrónico</strong></a>
             </div>
-            <div class="donation-info">
-               <i class="material-icons icon">wysiwyg</i>
-               <p id="commentCount" class="user-count"><strong>Feedback</strong></p>
-               <form id="commentForm">
-                  <textarea id="comment" class="feedback-input" rows="5" required placeholder=""></textarea>
-                  </br></br>
-                  <button type="submit" class="send-button">Enviar</button>
-               </form>
-            </div>
-
+           <div class="donation-info">
+   <i class="material-icons icon">wysiwyg</i>
+   <p id="commentCount" class="user-count"><strong>Feedback</strong></p>
+   <form id="commentForm">
+      <textarea id="comment" class="feedback-input" rows="5" required placeholder="Escribe tu feedback aquí..."></textarea>
+      <button type="submit" class="send-button">Enviar</button>
+   </form>
+</div>
          <div class="donation-info">
             <div class="image-container">
                <i class="material-icons icon">wc</i>
