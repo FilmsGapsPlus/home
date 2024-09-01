@@ -2,10 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="3; url=https://filmsgapsplus.github.io/home/app">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FilmsGapsPlus</title>
   <link rel="icon" href="https://i.ibb.co/xHRbksw/Films-Gaps-Plus-App-Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -24,8 +27,18 @@
     .app-logo3 {
       width: 220px;
       height: 35px;
+      cursor: pointer; /* Cambia el cursor al pasar por la imagen */
     }
   </style>
+  <script>
+    function redirectAndClose() {
+      window.open('https://filmsgapsplus.github.io/home/app', '_blank'); // Abrir la URL en una nueva pestaña
+      window.close(); // Cerrar la ventana actual
+    }
+
+    // Redirige después de 5 segundos
+    setTimeout(redirectAndClose, 3000);
+  </script>
 </head>
 <body>
     <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(3).png" alt="FilmsGapsPlus" class="app-logo3">
