@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FilmsGapsPlus</title>
+      <link rel="icon" href="https://i.ibb.co/xHRbksw/Films-Gaps-Plus-App-Logo.png">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <style>
+         /* Estilos generales */
+         body {
+         font-family: 'Roboto', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-image: url('https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(1).png');
+         background-size: cover;
+         background-repeat: no-repeat;
+         color: #fff;
+         }
+         .icon {
+         font-size: 55px; /* Tamaño del ícono */
+         color: #FFF;
+         }
+         .icon2 {
+         font-size: 19px; /* Tamaño del ícono */
+         color: #FFF;
+         }
+         .donation-info {
+         margin-top: 30px;
+         padding: 20px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 12px;
+         transition: background-color 0.3s ease;
+         }
+         .scroll-view {
+         padding-left: 20px;
+         padding-right: 20px;
+         padding-bottom: 10px;
+         }
+         .background {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1; /* Detrás del contenido principal */
+         pointer-events: none; /* No interferir con la interacción del usuario */
+         }
+         .bubble {
+         position: absolute;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.1); /* Color de la burbuja */
+         opacity: 0;
+         animation: rise 10s infinite, fade 10s infinite;
+         }
+         @keyframes rise {
+         0% {
+         transform: translateY(100vh);
+         }
+         100% {
+         transform: translateY(-100vh);
+         }
+         }
+         @keyframes fade {
+         0%, 100% {
+         opacity: 0;
+         }
+         50% {
+         opacity: 1;
+         }
+         }
+         .content {
+         position: relative;
+         z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+         padding: 20px;
+         color: white;
+         text-align: center;
+         }
+         .app-logo {
+         max-width: 100%;
+         height: auto;
+         display: block;
+         margin: 0 auto;
+         }
+         .app-logo2 {
+         width: 225px;
+         height: 225px;
+         display: block;
+         margin: 0 auto;
+         }
+         .app-logo3 {
+         width: 220px;
+         height: 35px;
+         display: block;
+         margin: 0 auto;
+         }
+         .main-text {
+         text-align: center;
+         font-size: 25px;
+         }
+         .sub-text {
+         text-align: center;
+         font-size: 16px; /* Tamaño corregido */
+         color: #616161;
+         }
+         .download-button {
+         width: 200px;
+         height: 45px;
+         padding: 8px;
+         background-color: #F64545;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 18px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .donar-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #F6AC38;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .telegram-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #00B9FF;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 3s ease-in-out infinite;
+         }
+         .e-mail-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #F64545;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .paypal-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #3A6EFF;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .image-container {
+         margin-top: 20px;
+         text-align: center;
+         }
+         .user-count {
+         text-align: center;
+         margin: 20px;
+         font-size: 20px;
+         font-family: 'SUSE', sans-serif;
+         font-weight: 700;
+         }
+         .user-text {
+         text-align: center;
+         font-size: 20px;
+         color: #E7E7E7;
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400;
+         }
+         .user-text2 {
+         text-align: center;
+         text-align: left;
+         margin: 10px;
+         font-size: 20px;
+         color: #E7E7E7;
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400;
+         }
+         .price-container {
+         margin-top: 50px;
+         text-align: center;
+         }
+         .copyright {
+         text-align: center;
+         font-size: 14px;
+         color: #757575;
+         }
+         @keyframes parpadeo {
+         25% { opacity: 1.0; }
+         50% { opacity: 0.5; }
+         100% { opacity: 1.0; }
+         }
+         .toolbar {
+         width: 100%;
+         background-color: #00000000; /* Color de fondo */
+         padding: 10px 0; /* Espaciado interno */
+         text-align: center; /* Centrar el texto y los enlaces */
+         color: white; /* Color del texto */
+         bottom: 0;
+         left: 0;
+         z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
+         }
+         .toolbar a {
+         color: white; /* Color de los enlaces */
+         text-decoration: none; /* Elimina el subrayado */
+         margin: 0 10px; /* Espaciado entre los enlaces */
+         }
+         .toolbar a:hover {
+         text-decoration: underline; /* Subrayado al pasar el ratón */
+         }
+         .slider {
+         position: relative;
+         width: 100%;
+         max-width: 600px; /* Ajusta el tamaño según tus necesidades */
+         margin: auto;
+         overflow: hidden;
+         }
+         .slides {
+         display: flex;
+         transition: transform 0.5s ease-in-out;
+         }
+         .slides img {
+         width: 100%;
+         height: auto;
+         display: block;
+         }
+         /* Estilos para el FAB */
+         .fab {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         width: 56px;
+         height: 56px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 10px;
+         color: #FFFFFF;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+         cursor: pointer;
+         transition: transform 0.3s ease;
+         transition: transform 0.5s ease-in-out;
+         }
+         /* Icono dentro del FAB */
+         .fab i {
+         font-size: 24px;
+         }
+         /* Estilos para la transición */
+         .scroll-up {
+         transform: rotate(180deg);
+         }
+         .scroll-down {
+         transform: rotate(0deg);
+         }
+         .comment-form h2 {
+         text-align: center;
+         margin-bottom: 20px;
+         }
+         .input-group {
+         margin-bottom: 15px;
+         }
+         .input-group label {
+         display: block;
+         margin-bottom: 5px;
+         }
+         .input-group input,
+         .input-group textarea {
+         width: 100%;
+         padding: 8px;
+         border: none;
+         border-radius: 5px;
+         background: rgba(255, 255, 255, 0.2);
+         color: #fff;
+         }
+         .submit-button {
+         width: 100%;
+         padding: 10px;
+         border: none;
+         border-radius: 5px;
+         background-color: #F64545;
+         color: #fff;
+         font-size: 16px;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         transition: transform 0.5s ease-in-out;
+         }
+         .submit-button:hover {
+         background-color: #D63535;
+         transition: transform 0.5s ease-in-out;
+         }
+      </style>
+      <div id="linear1">
+      <div class="scroll-view">
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">lock</i>
+            <p class="user-count"><strong>Terminos de Seguridad y Privacidad</strong></p>
+            <p class="user-text2">En FilmsGapsPlus, valoramos tu privacidad y nos comprometemos a proteger la seguridad de tus datos personales. A continuación, se presentan nuestros términos de seguridad y privacidad que describen cómo recopilamos, utilizamos y protegemos tu información al utilizar nuestra aplicación, incluido el inicio de sesión con Google. Al utilizar FilmsGapsPlus, aceptas estos términos y condiciones.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">password</i>
+            <p class="user-count"><strong>Inicio de sesión con Google</strong></p>
+            <p class="user-text2">FilmsGapsPlus te permite iniciar sesión en nuestra aplicación utilizando tu cuenta de Google. Al elegir esta opción de inicio de sesión, nos basamos en la información proporcionada por Google para verificar tu identidad y gestionar tu cuenta en FilmsGapsPlus.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">perm_contact_calendar</i>
+            <p class="user-count"><strong>Recopilación de información personal</strong></p>
+            <p class="user-text2">Al utilizar el inicio de sesión con Google en FilmsGapsPlus, recopilaremos cierta información personal que hayas autorizado compartir con nosotros a través de tu cuenta de Google. Esto puede incluir tu nombre, dirección de correo electrónico, foto de perfil. Información extra región y marca del dispositivo.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">contact_mail</i>
+            <p class="user-count"><strong>Uso de información personal</strong></p>
+            <p class="user-text2">Utilizamos la información personal recopilada a través del inicio de sesión con Google para proporcionarte nuestros servicios y mejorar tu experiencia en FilmsGapsPlus. Esto incluye facilitar la comunicación entre usuarios, personalizar el contenido que se muestra y brindarte soporte técnico cuando sea necesario.</p>
+            <p class="user-text2">No compartiremos tu información personal con terceros sin tu consentimiento, excepto en los casos que sean requeridos por ley o cuando sea necesario para proteger nuestros derechos legales.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">dns</i>
+            <p class="user-count"><strong>Seguridad de datos</strong></p>
+            <p class="user-text2">Implementamos medidas de seguridad para proteger tus datos personales contra el acceso no autorizado, el uso indebido y la divulgación no autorizada. Esto incluye el cifrado de datos, el monitoreo regular de nuestros sistemas y la capacitación de nuestro personal en prácticas de seguridad.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">notifications_active</i>
+            <p class="user-count"><strong>Comunicaciones y notificaciones</strong></p>
+            <p class="user-text2">Podemos enviarte comunicaciones relacionadas con el servicio, como actualizaciones de la aplicación, notificaciones de seguridad o cambios en nuestros términos y condiciones. Estas comunicaciones son necesarias para mantener el buen funcionamiento de FilmsGapsPlus y no podrás optar por no recibirlas.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">man_2</i>
+            <p class="user-count"><strong>Menores de edad</strong></p>
+            <p class="user-text2">FilmsGapsPlus no está destinado a menores de 13 años. No recopilamos de manera intencional información personal de menores de edad. Si tienes conocimiento de que un menor de edad nos ha proporcionado información personal, contáctanos de inmediato.</p>
+            <a href="https://t.me/FilmsGapsPlusSoporte" class="telegram-button"><strong>Telegram</strong></a>
+            <a href="mailto:filmsgapsplusdevelopers@gmail.com?subject=Soporte%20FilmsGapsPlus&body=Hola,%20necesito%20ayuda%20con" class="e-mail-button"><strong>Correo electrónico</strong></a>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">gavel</i>
+            <p class="user-count"><strong>Estos términos de seguridad y privacidad están sujetos a cambios.</strong></p>
+            <p class="user-text2">Te recomendamos revisarlos regularmente para estar al tanto de cualquier actualización. Si tienes alguna pregunta o inquietud sobre nuestros términos de seguridad y privacidad, no dudes en contactarnos.</p>
+         </div>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">calendar_month</i>
+            <p class="user-count"><strong>Última modificación</strong></p>
+            <p class="user-text2">20 de Septiembre del 2023</p>
+         </div>
+      </div>
+      </br>
+      <p class="copyright">Al descargar y utilizar esta aplicación, usted acepta nuestros términos.</p>
+      </br>
+      <p class="copyright">2020 | 2024 © ZendTay Studio. Todos los derechos reservados.</p>
+      <div class="background"></div>
+      <div class="fab" id="fab" onclick="scrollToPosition()">
+      <i class="material-icons" id="fab-icon">arrow_downward</i>
+      <script>
+         let isScrolledDown = false;
+         
+         function scrollToPosition() {
+           if (isScrolledDown) {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+           } else {
+             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+           }
+           isScrolledDown = !isScrolledDown;
+           toggleFabIcon();
+         }
+         
+         function toggleFabIcon() {
+           const fabIcon = document.getElementById('fab-icon');
+           if (isScrolledDown) {
+             fabIcon.textContent = 'arrow_upward';
+           } else {
+             fabIcon.textContent = 'arrow_downward';
+           }
+         }
+         
+         // Cambia el icono del FAB en función de la posición de desplazamiento
+         window.addEventListener('scroll', () => {
+           const scrollPosition = window.scrollY + window.innerHeight;
+           const halfPageHeight = document.body.scrollHeight / 2;
+         
+           if (scrollPosition >= halfPageHeight) {
+             isScrolledDown = true;
+             toggleFabIcon();
+           } else {
+             isScrolledDown = false;
+             toggleFabIcon();
+           }
+         });
+      </script>
+      <script>
+         const background = document.querySelector('.background');
+         
+         function createBubble() {
+             const bubble = document.createElement('div');
+             const size = Math.random() * 40 + 10; // Tamaño aleatorio entre 20 y 80px
+             const left = Math.random() * 100; // Posición horizontal aleatoria
+             bubble.classList.add('bubble');
+             bubble.style.width = `${size}px`;
+             bubble.style.height = `${size}px`;
+             bubble.style.left = `${left}vw`;
+             background.appendChild(bubble);
+         
+             // Eliminar la burbuja después de que termine la animación
+             setTimeout(() => {
+                 bubble.remove();
+             }, 10000); // Coincide con la duración de la animación
+         }
+         
+         // Crear burbujas a intervalos regulares
+         setInterval(createBubble, 1000);
+      </script>
+      </body>
+</html>
