@@ -433,14 +433,15 @@
                <div class="input-group">
                   <div id="commentCount" class="user-text2"></div>
                   <textarea id="comment" rows="4" required></textarea>
-               </div>
-               <button type="submit" class="submit-button">Enviar</button>
+                  <br></br>
+                  <button type="submit" class="submit-button">Enviar</button>
             </form>
+            </div>
          </div>
          <div class="donation-info">
             <div class="image-container">
                <i class="material-icons icon">wc</i>
-               <p class="user-count"><strong>Existen 2 genero</strong></p>
+               <p class="user-count2"><strong>Existen 2 genero</strong></p>
                <p class="user-text2"><i class="material-icons icon2">man</i>Masculino (Hombre)</p>
                <p class="user-text2"><i class="material-icons icon2">woman_2</i>Femenino (Mujer)</p>
                </br>
@@ -527,98 +528,4 @@
          
              // Eliminar la burbuja después de que termine la animación
              setTimeout(() => {
-                 bubble.remove();
-             }, 10000); // Coincide con la duración de la animación
-         }
-         
-         // Crear burbujas a intervalos regulares
-         setInterval(createBubble, 1000);
-      </script>
-      <script>
-         let isScrolledDown = false;
-         
-         function scrollToPosition() {
-           if (isScrolledDown) {
-             window.scrollTo({ top: 0, behavior: 'smooth' });
-           } else {
-             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-           }
-           isScrolledDown = !isScrolledDown;
-           toggleFabIcon();
-         }
-         
-         function toggleFabIcon() {
-           const fabIcon = document.getElementById('fab-icon');
-           if (isScrolledDown) {
-             fabIcon.textContent = 'arrow_upward';
-           } else {
-             fabIcon.textContent = 'arrow_downward';
-           }
-         }
-         
-         // Cambia el icono del FAB en función de la posición de desplazamiento
-         window.addEventListener('scroll', () => {
-           const scrollPosition = window.scrollY + window.innerHeight;
-           const halfPageHeight = document.body.scrollHeight / 2;
-         
-           if (scrollPosition >= halfPageHeight) {
-             isScrolledDown = true;
-             toggleFabIcon();
-           } else {
-             isScrolledDown = false;
-             toggleFabIcon();
-           }
-         });
-      </script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-      <script>
-         // Configuración de Firebase
-         const firebaseConfig = {
-             apiKey: "tu-api-key",
-             authDomain: "tu-auth-domain",
-             databaseURL: "https://filmsgapspluschat-default-rtdb.firebaseio.com",
-             projectId: "tu-project-id",
-             storageBucket: "tu-storage-bucket",
-             messagingSenderId: "tu-messaging-sender-id",
-             appId: "tu-app-id"
-         };
-         
-         // Inicializar Firebase
-         firebase.initializeApp(firebaseConfig);
-         
-         // Referencia a la base de datos
-         const database = firebase.database();
-         
-         // Obtener y contar los comentarios
-         database.ref('FilmsGapsPlusApiSDK/idComent/').on('value', function(snapshot) {
-             const comments = snapshot.val();
-             const count = comments ? Object.keys(comments).length : 0;
-             document.getElementById('commentCount').innerText = `Comentarios (${count})`;
-         });
-         
-         document.getElementById('commentForm').addEventListener('submit', function(e) {
-             e.preventDefault();
-         
-            
-             const comment = document.getElementById('comment').value;
-         
-             // Generar un ID único para el comentario
-             const commentId = Date.now().toString();
-         
-             // Enviar el comentario a Firebase
-             database.ref('FilmsGapsPlusApiSDK/idComent/' + commentId).set({
-            
-                 comment: comment,
-                 timestamp: firebase.database.ServerValue.TIMESTAMP
-             }).then(() => {
-                 alert('Comentario enviado con éxito');
-                 document.getElementById('commentForm').reset();
-             }).catch((error) => {
-                 console.error('Error:', error);
-                 alert('Error al enviar el comentario');
-             });
-         });
-      </script>
-   </body>
-</html>
+              
