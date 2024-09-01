@@ -315,25 +315,43 @@
          font-weight: 700;
          }
 .feedback-input {
-  background-color: #333; /* Set a solid background color */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
   padding: 15px;
-  width: 275px;
+  width: 100%; /* Ajusta al ancho del contenedor */
+  max-width: 275px; /* Mantiene el ancho máximo */
   border-radius: 10px;
   font-size: 16px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.feedback-input::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* Placeholder más visible */
+}
+
+.feedback-input:focus {
+  background-color: rgba(255, 255, 255, 0.2); /* Más claro al enfocar */
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .send-button {
-  background-color: #ff4b4b; /* Keep the original color for the button */
+  background-color: #ff4b4b;
   color: white;
   border: none;
-  padding: 10px;
-  width: 275px;
-  border-radius: 5px;
+  padding: 12px 15px;
+  width: 100%;
+  max-width: 275px;
+  border-radius: 10px; /* Consistente con el textarea */
   font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.send-button:hover {
+  background-color: #ff6b6b; /* Efecto hover */
+}
       </style>
    </head>
    <body>
@@ -413,14 +431,13 @@
             <div class="donation-info">
                <i class="material-icons icon">wysiwyg</i>
                <p id="commentCount" class="user-count"><strong>Feedback</strong></p>
-               
                <form id="commentForm">
                   <textarea id="comment" class="feedback-input" rows="5" required placeholder=""></textarea>
                   </br></br>
                   <button type="submit" class="send-button">Enviar</button>
                </form>
             </div>
-         </div>
+
          <div class="donation-info">
             <div class="image-container">
                <i class="material-icons icon">wc</i>
