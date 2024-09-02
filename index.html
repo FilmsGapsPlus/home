@@ -123,14 +123,14 @@
          animation: parpadeo 4s ease-in-out infinite;
          }
          .terminos-button {
-         width: 200px;
+         width: 250px;
          height: 35px;
          padding: 8px;
-         background-color: #FFFFFF;
+         background-color: #303030;
          text-align: center;
          margin: 20px auto;
-         border-radius: 100px;
-         color: #191919;
+         border-radius: 10px;
+         color: #FFFFFF;
          font-size: 16px;
          display: flex;
          align-items: center;
@@ -234,6 +234,7 @@
          text-align: center;
          }
          .copyright {
+         text-decoration: none; /* Elimina el subrayado */
          margin: 10px;
          text-align: center;
          font-size: 14px;
@@ -245,6 +246,7 @@
          100% { opacity: 1.0; }
          }
          .toolbar {
+         font-size: 14px;
          width: 100%;
          background-color: #00000000; /* Color de fondo */
          padding: 10px 0; /* Espaciado interno */
@@ -257,7 +259,7 @@
          .toolbar a {
          color: white; /* Color de los enlaces */
          text-decoration: none; /* Elimina el subrayado */
-         margin: 0 10px; /* Espaciado entre los enlaces */
+         margin: 0 2px; /* Espaciado entre los enlaces */
          }
          .toolbar a:hover {
          text-decoration: underline; /* Subrayado al pasar el ratón */
@@ -358,7 +360,9 @@
       </div>
       <p class="user-count2"><strong>Nuestra aplicación se adapta automáticamente a tu dispositivo ya sea en tu teléfono o en tu televisor android</strong></p>
       <a href="https://filmsgapsplus.github.io/home/FilmsGapsPlus_v2.3.apk" class="download-button"><strong>Descargar ¡Ahora!</strong></a>
-      <p class="copyright">Al descargar y utilizar esta aplicación, usted acepta nuestros términos.</p>
+      <div class="toolbar">
+         <p class="copyright">Al descargar y utilizar esta aplicación, usted acepta nuestros<a href="https://filmsgapsplus.github.io/home/privacidad" class="copyright">términos de seguridad y privacidad.</a></p>
+      </div>
       <div class="donation-info">
          <div class="image-container">
             <i class="material-icons icon">smartphone</i>
@@ -403,7 +407,7 @@
             <i class="material-icons icon">volunteer_activism</i>
             <p class="user-count"><strong>¿Por qué donar?</strong></p>
             <p class="user-text2">Tu donación nos ayuda a mejorar FilmsGapsPlus y a seguir ofreciendo una experiencia cinematográfica excepcional para todos.</p>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=PGFHSUNXYZPDJ" class="paypal-button"><strong>Donar ¡Aqui!</strong></a>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=PGFHSUNXYZPDJ" class="telegram-button"><strong>Donar ¡Aqui!</strong></a>
          </div>
       </div>
       <div class="image-container">
@@ -436,7 +440,9 @@
                <i class="material-icons icon">lock</i>
                <p class="user-count2"><strong>Terminos de Seguridad y Privacidad</strong></p>
                <p class="user-text2">Al descargar y utilizar esta aplicación, usted acepta nuestros términos y condiciones. Le recomendamos leerlos detenidamente antes de continuar.</p>
-               <a href="https://filmsgapsplus.github.io/home/privacidad" class="terminos-button"><strong>Terminos</strong></a>
+            </div>
+            <div class="toolbar">
+               <a href="https://filmsgapsplus.github.io/home/privacidad" class="copyright">Terminos de Seguridad y Privacidad</a>
             </div>
             <div class="toolbar">
                <a href="https://t.me/FilmsGapsPlusHp" target="_blank">Telegram</a>
@@ -444,9 +450,6 @@
                <a href="https://tiktok.com/@filmsgapsplus" target="_blank">Tik Tok</a>
                <span> | </span>
                <a href="https://t.me/FilmsGapsPlusSoporte" target="_blank">Soporte</a>
-            </div>
-            <div class="toolbar">
-               <a href="https://filmsgapsplus.github.io/home/privacidad" class="copyright">Terminos de Seguridad y Privacidad</a>
             </div>
             <p class="copyright">2020 | 2024 © ZendTay Studio. Todos los derechos reservados.</p>
          </div>
@@ -585,17 +588,24 @@
          document.getElementById('commentForm').addEventListener('submit', function(e) {
              e.preventDefault();
          
-            
              const comment = document.getElementById('comment').value;
          
              // Generar un ID único para el comentario
              const commentId = Date.now().toString();
+             
+             // Obtener la fecha actual en el formato deseado
+             const formattedTimestamp = new Date().toLocaleString('es-ES', {
+                 year: 'numeric',
+                 month: '2-digit',
+                 day: '2-digit',
+                 hour: '2-digit',
+                 minute: '2-digit'
+             });
          
              // Enviar el comentario a Firebase
              database.ref('FilmsGapsPlusApiSDK/idComent/' + commentId).set({
-            
                  comment: comment,
-                 timestamp: firebase.database.ServerValue.TIMESTAMP
+                 timestamp: formattedTimestamp
              }).then(() => {
                  alert('Feedback enviado con éxito');
                  document.getElementById('commentForm').reset();
