@@ -1,1 +1,619 @@
-
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FilmsGapsPlus • Download An App Films And Series Free</title>
+      <link rel="icon" href="https://i.ibb.co/xHRbksw/Films-Gaps-Plus-App-Logo.png" type="image/png">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <style>
+         /* Estilos generales */
+         body {
+         font-family: 'Roboto', sans-serif;
+         margin: 0;
+         padding: 0;
+         background: linear-gradient(to bottom, #202125, #070707);
+         background-size: cover;
+         background-repeat: no-repeat;
+         color: #fff;
+         }
+         .icon {
+         font-size: 55px; /* Tamaño del ícono */
+         color: #FFF;
+         }
+         .icon2 {
+         font-size: 19px; /* Tamaño del ícono */
+         color: #FFF;
+         }
+         .donation-info {
+         margin-top: 30px;
+         padding: 20px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 12px;
+         transition: background-color 0.3s ease;
+         }
+         .scroll-view {
+         padding-left: 20px;
+         padding-right: 20px;
+         padding-bottom: 10px;
+         }
+         .background {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1; /* Detrás del contenido principal */
+         pointer-events: none; /* No interferir con la interacción del usuario */
+         }
+         .bubble {
+         position: absolute;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.1); /* Color de la burbuja */
+         opacity: 0;
+         animation: rise 10s infinite, fade 10s infinite;
+         }
+         @keyframes rise {
+         0% {
+         transform: translateY(100vh);
+         }
+         100% {
+         transform: translateY(-100vh);
+         }
+         }
+         @keyframes fade {
+         0%, 100% {
+         opacity: 0;
+         }
+         50% {
+         opacity: 1;
+         }
+         }
+         .content {
+         position: relative;
+         z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+         padding: 20px;
+         color: white;
+         text-align: center;
+         }
+         .app-logo {
+         max-width: 100%;
+         height: auto;
+         display: block;
+         margin: 0 auto;
+         }
+         .app-logo2 {
+         width: 225px;
+         height: 225px;
+         display: block;
+         margin: 0 auto;
+         }
+         .app-logo3 {
+         width: 220px;
+         height: 35px;
+         display: block;
+         margin: 0 auto;
+         }
+         .main-text {
+         text-align: center;
+         font-size: 25px;
+         }
+         .sub-text {
+         text-align: center;
+         font-size: 16px; /* Tamaño corregido */
+         color: #616161;
+         }
+         .download-button {
+         width: 200px;
+         height: 45px;
+         padding: 8px;
+         background-color: #F64545;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 18px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .terminos-button {
+         width: 250px;
+         height: 35px;
+         padding: 8px;
+         background-color: #303030;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 10px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 3s ease-in-out infinite;
+         }
+         .donar-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #F6AC38;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .telegram-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #00B9FF;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 3s ease-in-out infinite;
+         }
+         .e-mail-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #F64545;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .paypal-button {
+         width: 200px;
+         height: 35px;
+         padding: 8px;
+         background-color: #3A6EFF;
+         text-align: center;
+         margin: 20px auto;
+         border-radius: 100px;
+         color: #FFFFFF;
+         font-size: 16px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-decoration: none;
+         animation: parpadeo 4s ease-in-out infinite;
+         }
+         .image-container {
+         margin-top: 20px;
+         text-align: center;
+         }
+         .user-count {
+         text-align: center;
+         margin: 20px;
+         font-size: 30px;
+         font-family: 'SUSE', sans-serif;
+         font-weight: 700;
+         }
+         .user-text {
+         text-align: center;
+         font-size: 20px;
+         color: #E7E7E7;
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400;
+         }
+         .user-text2 {
+         text-align: center;
+         text-align: left;
+         margin: 10px;
+         font-size: 20px;
+         color: #E7E7E7;
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400;
+         }
+         .price-container {
+         margin-top: 50px;
+         text-align: center;
+         }
+         .copyright {
+         text-decoration: none; /* Elimina el subrayado */
+         margin: 10px;
+         text-align: center;
+         font-size: 14px;
+         color: #757575;
+         }
+         @keyframes parpadeo {
+         25% { opacity: 1.0; }
+         50% { opacity: 0.5; }
+         100% { opacity: 1.0; }
+         }
+         .toolbar {
+         font-size: 14px;
+         width: 100%;
+         background-color: #00000000; /* Color de fondo */
+         padding: 10px 0; /* Espaciado interno */
+         text-align: center; /* Centrar el texto y los enlaces */
+         color: white; /* Color del texto */
+         bottom: 0;
+         left: 0;
+         z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
+         }
+         .toolbar a {
+         color: white; /* Color de los enlaces */
+         text-decoration: none; /* Elimina el subrayado */
+         margin: 0 2px; /* Espaciado entre los enlaces */
+         }
+         .toolbar a:hover {
+         text-decoration: underline; /* Subrayado al pasar el ratón */
+         }
+         .slider {
+         position: relative;
+         width: 100%;
+         max-width: 600px; /* Ajusta el tamaño según tus necesidades */
+         margin: auto;
+         overflow: hidden;
+         }
+         .slides {
+         display: flex;
+         transition: transform 0.5s ease-in-out;
+         }
+         .slides img {
+         width: 100%;
+         height: auto;
+         display: block;
+         }
+         /* Estilos para el FAB */
+         .fab {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         width: 56px;
+         height: 56px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 10px;
+         color: #FFFFFF;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+         cursor: pointer;
+         transition: transform 0.3s ease;
+         transition: transform 0.5s ease-in-out;
+         }
+         /* Icono dentro del FAB */
+         .fab i {
+         font-size: 24px;
+         }
+         /* Estilos para la transición */
+         .scroll-up {
+         transform: rotate(180deg);
+         }
+         .scroll-down {
+         transform: rotate(0deg);
+         }
+         .user-count2 {
+         text-align: center;
+         margin: 20px;
+         font-size: 20px;
+         font-family: 'SUSE', sans-serif;
+         font-weight: 700;
+         }
+         .feedback-input {
+         background-color: rgba(51, 51, 51, 0.85); /* Fondo con menos opacidad */
+         color: white;
+         border: none;
+         padding: 15px;
+         width: 100%; /* Ajuste automático al contenedor padre */
+         max-width: 500px; /* Ancho máximo */
+         border-radius: 10px;
+         font-size: 16px;
+         box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+         margin-bottom: 20px; /* Espacio entre textarea y botón */
+         }
+         .send-button {
+         background-color: #ff4b4b; /* Mantenemos el color original del botón */
+         color: white;
+         border: none;
+         padding: 10px;
+         width: 100%; /* Ajuste automático al contenedor padre */
+         max-width: 500px; /* Ancho máximo */
+         border-radius: 5px;
+         font-size: 16px;
+         box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+         cursor: pointer;
+         }
+      </style>
+   </head>
+   <body>
+      </br>
+      </br>
+      </br>
+      <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/FilmsGapsPlus%20(3).png" alt="FilmsGapsPlus" class="app-logo3">
+      </br>
+      </br>
+      <div id="linear1">
+      <div class="scroll-view">
+      <div class="slider">
+         <div class="slides">
+            <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/640_1%20(2).png" alt="FilmsGapsPlus" class="app-logo3">
+            <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/640_1%20(3).png" alt="FilmsGapsPlus" class="app-logo3">
+            <img src="https://raw.githubusercontent.com/FilmsGapsPlus/home/gh-pages/640_1%20(4).png" alt="FilmsGapsPlus" class="app-logo3">
+         </div>
+      </div>
+      <p class="user-count2"><strong>Nuestra aplicación se adapta automáticamente a tu dispositivo ya sea en tu teléfono o en tu televisor android</strong></p>
+      <a href="https://filmsgapsplus.github.io/home/FilmsGapsPlus_v2.3.apk" class="download-button"><strong>Descargar ¡Ahora!</strong></a>
+      <div class="toolbar">
+         <p class="copyright">Al descargar y utilizar esta aplicación, usted acepta nuestros<a href="https://filmsgapsplus.github.io/home/privacidad" class="copyright">términos de seguridad y privacidad.</a></p>
+      </div>
+      <div class="donation-info">
+         <div class="image-container">
+            <i class="material-icons icon">smartphone</i>
+            <p class="user-count"><strong>Celular</strong></p>
+            <p class="user-text2">Disfruta de nuestra aplicación y experimenta todo el contenido con mayor comodidad desde tu celular.</p>
+         </div>
+      </div>
+      <div class="image-container">
+         <div class="donation-info">
+            <i class="material-icons icon">tv</i>
+            <p class="user-count"><strong>Android Tv</strong></p>
+            <p class="user-text2">FilmsGapsPlus ahora está disponible en TV. Disfruta de nuestra aplicación en una pantalla más grande y experimenta todo el contenido con mayor comodidad desde tu televisor.</p>
+         </div>
+         <div class="donation-info">
+            <i class="material-icons icon">movie</i>
+            <p class="user-count"><strong>Movies</strong></p>
+            <div class="image-container">
+               <p class="user-text2">Descubre miles de películas y series de calidad, resubidas desde las mejores páginas web. Sumérgete en un vasto catálogo lleno de estrenos y clásicos, todo presentado con una interfaz intuitiva y elegante. Explora y disfruta del contenido que amas con la mejor calidad disponible.</p>
+            </div>
+         </div>
+         <div class="donation-info">
+            <i class="material-icons icon">chat</i>
+            <p class="user-count"><strong>Comentarios</strong></p>
+            <div class="image-container">
+               <p class="user-text2">La sección de comentarios te permite interactuar con otros usuarios y compartir tus opiniones sobre el contenido. Deja tus impresiones, lee las reseñas de otros y participa en conversaciones sobre tus películas y series favoritas.</p>
+            </div>
+         </div>
+         <div class="donation-info">
+            <i class="material-icons icon">account_circle</i>
+            <p class="user-count"><strong>Premium $3.99</strong></p>
+            </br>
+            <p class="user-text2"> <i class="material-icons icon2">wysiwyg</i> Olvídate de los anuncios</p>
+            <p class="user-text2"> <i class="material-icons icon2">video_library</i> Todo el contenido gratis</p>
+            <p class="user-text2"> <i class="material-icons icon2">library_books</i> Solicitar contenido</p>
+            <p class="user-text2"> <i class="material-icons icon2">workspace_premium</i> Insignia Premium</p>
+            <p class="user-text2"> <i class="material-icons icon2">paid</i> Obtener 100 monedas</p>
+            <p class="user-text2"> <i class="material-icons icon2">payments</i> Obtener 100 dolares</p>
+            </br>
+            <a href="https://t.me/FilmsGapsPlus" class="donar-button"><strong>Solicitar premium</strong></a>
+         </div>
+         <div class="donation-info">
+            <i class="material-icons icon">volunteer_activism</i>
+            <p class="user-count"><strong>¿Por qué donar?</strong></p>
+            <p class="user-text2">Tu donación nos ayuda a mejorar FilmsGapsPlus y a seguir ofreciendo una experiencia cinematográfica excepcional para todos.</p>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=PGFHSUNXYZPDJ" class="telegram-button"><strong>Donar ¡Aqui!</strong></a>
+         </div>
+      </div>
+      <div class="image-container">
+         <div class="donation-info">
+            <i class="material-icons icon">support_agent</i>
+            <p class="user-count"><strong>Soporte</strong></p>
+            <p class="user-text2">Si tienes alguna pregunta, encuentras un problema o necesitas ayuda con alguna de las funciones de la aplicación, estamos aquí para asistirte, puedes contactarnos a través de nuestro correo electrónico o unirte a nuestro canal de soporte en telegram.</p>
+            <a href="https://t.me/FilmsGapsPlusSoporte" class="telegram-button"><strong>Telegram</strong></a>
+            <a href="mailto:filmsgapsplusdevelopers@gmail.com?subject=Soporte%20FilmsGapsPlus&body=Hola,%20necesito%20ayuda%20con" class="e-mail-button"><strong>Correo electrónico</strong></a>
+         </div>
+         <div class="donation-info">
+            <i class="material-icons icon">wysiwyg</i>
+            <p id="commentCount" class="user-count"><strong>Feedback</strong></p>
+            <form id="commentForm">
+               <textarea id="comment" class="feedback-input" rows="5" required placeholder="Escribe tu feedback aquí..."></textarea>
+               <button type="submit" class="send-button">Enviar</button>
+            </form>
+         </div>
+         <div class="donation-info">
+            <div class="image-container">
+               <i class="material-icons icon">wc</i>
+               <p class="user-count2"><strong>Existen 2 genero</strong></p>
+               <p class="user-text2"><i class="material-icons icon2">man</i>Masculino (Hombre)</p>
+               <p class="user-text2"><i class="material-icons icon2">woman_2</i>Femenino (Mujer)</p>
+               </br>
+            </div>
+         </div>
+         <div class="donation-info">
+            <div class="image-container">
+               <i class="material-icons icon">lock</i>
+               <p class="user-count2"><strong>Terminos de Seguridad y Privacidad</strong></p>
+               <p class="user-text2">Al descargar y utilizar esta aplicación, usted acepta nuestros términos y condiciones. Le recomendamos leerlos detenidamente antes de continuar.</p>
+            </div>
+            <div class="toolbar">
+               <a href="https://filmsgapsplus.github.io/home/privacidad" class="copyright">Terminos de Seguridad y Privacidad</a>
+            </div>
+            <div class="toolbar">
+               <a href="https://t.me/FilmsGapsPlusHp" target="_blank">Telegram</a>
+               <span> | </span>
+               <a href="https://tiktok.com/@filmsgapsplus" target="_blank">Tik Tok</a>
+               <span> | </span>
+               <a href="https://t.me/FilmsGapsPlusSoporte" target="_blank">Soporte</a>
+            </div>
+            <p class="copyright">2020 | 2024 © ZendTay Studio. Todos los derechos reservados.</p>
+         </div>
+      </div>
+      </br>
+      <div class="background"></div>
+      <div class="fab" id="fab" onclick="scrollToPosition()">
+         <i class="material-icons" id="fab-icon">arrow_downward</i>
+      </div>
+      <script>
+         let index = 0;
+         const slides = document.querySelector('.slides');
+         const images = slides.querySelectorAll('img');
+         const totalImages = images.length;
+         let startX;
+         
+         function showSlide(n) {
+             if (n >= totalImages) {
+                 index = 0;
+             } else if (n < 0) {
+                 index = totalImages - 1;
+             } else {
+                 index = n;
+             }
+             const offset = -index * 100;
+             slides.style.transform = `translateX(${offset}%)`;
+         }
+         
+         function handleTouchStart(event) {
+             startX = event.touches[0].clientX;
+         }
+         
+         function handleTouchEnd(event) {
+             const endX = event.changedTouches[0].clientX;
+             const deltaX = endX - startX;
+         
+             if (deltaX > 50) {
+                 showSlide(index - 1); // Deslizar a la izquierda
+             } else if (deltaX < -50) {
+                 showSlide(index + 1); // Deslizar a la derecha
+             }
+         }
+         
+         setInterval(() => {
+             showSlide(index + 1);
+         }, 4000); // Cambia la imagen cada 3 segundos
+         
+         slides.addEventListener('touchstart', handleTouchStart);
+         slides.addEventListener('touchend', handleTouchEnd);
+      </script>
+      <script>
+         const background = document.querySelector('.background');
+         
+         function createBubble() {
+             const bubble = document.createElement('div');
+             const size = Math.random() * 40 + 10; // Tamaño aleatorio entre 20 y 80px
+             const left = Math.random() * 100; // Posición horizontal aleatoria
+             bubble.classList.add('bubble');
+             bubble.style.width = `${size}px`;
+             bubble.style.height = `${size}px`;
+             bubble.style.left = `${left}vw`;
+             background.appendChild(bubble);
+         
+             // Eliminar la burbuja después de que termine la animación
+             setTimeout(() => {
+                 bubble.remove();
+             }, 10000); // Coincide con la duración de la animación
+         }
+         
+         // Crear burbujas a intervalos regulares
+         setInterval(createBubble, 1000);
+      </script>
+      <script>
+         let isScrolledDown = false;
+         
+         function scrollToPosition() {
+           if (isScrolledDown) {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+           } else {
+             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+           }
+           isScrolledDown = !isScrolledDown;
+           toggleFabIcon();
+         }
+         
+         function toggleFabIcon() {
+           const fabIcon = document.getElementById('fab-icon');
+           if (isScrolledDown) {
+             fabIcon.textContent = 'arrow_upward';
+           } else {
+             fabIcon.textContent = 'arrow_downward';
+           }
+         }
+         
+         // Cambia el icono del FAB en función de la posición de desplazamiento
+         window.addEventListener('scroll', () => {
+           const scrollPosition = window.scrollY + window.innerHeight;
+           const halfPageHeight = document.body.scrollHeight / 2;
+         
+           if (scrollPosition >= halfPageHeight) {
+             isScrolledDown = true;
+             toggleFabIcon();
+           } else {
+             isScrolledDown = false;
+             toggleFabIcon();
+           }
+         });
+      </script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+      <script>
+         // Configuración de Firebase
+         const firebaseConfig = {
+             apiKey: "tu-api-key",
+             authDomain: "tu-auth-domain",
+             databaseURL: "https://filmsgapspluschat-default-rtdb.firebaseio.com",
+             projectId: "tu-project-id",
+             storageBucket: "tu-storage-bucket",
+             messagingSenderId: "tu-messaging-sender-id",
+             appId: "tu-app-id"
+         };
+         
+         // Inicializar Firebase
+         firebase.initializeApp(firebaseConfig);
+         
+         // Referencia a la base de datos
+         const database = firebase.database();
+         
+         // Obtener y contar los comentarios
+         database.ref('FilmsGapsPlusApiSDK/idComent/').on('value', function(snapshot) {
+             const comments = snapshot.val();
+             const count = comments ? Object.keys(comments).length : 0;
+             document.getElementById('commentCount').innerText = `Feedbacks (${count})`;
+         });
+         
+         document.getElementById('commentForm').addEventListener('submit', function(e) {
+             e.preventDefault();
+         
+             const comment = document.getElementById('comment').value;
+         
+             // Generar un ID único para el comentario
+             const commentId = Date.now().toString();
+             
+             // Obtener la fecha actual en el formato deseado
+             const formattedTimestamp = new Date().toLocaleString('es-ES', {
+                 year: 'numeric',
+                 month: '2-digit',
+                 day: '2-digit',
+                 hour: '2-digit',
+                 minute: '2-digit'
+             });
+         
+             // Enviar el comentario a Firebase
+             database.ref('FilmsGapsPlusApiSDK/idComent/' + commentId).set({
+                 comment: comment,
+                 timestamp: formattedTimestamp
+             }).then(() => {
+                 alert('Feedback enviado con éxito');
+                 document.getElementById('commentForm').reset();
+             }).catch((error) => {
+                 console.error('Error:', error);
+                 alert('Error al enviar el feedback');
+             });
+         });
+      </script>
+   </body>
+</html>
